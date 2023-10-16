@@ -1,5 +1,5 @@
+import styles from "./page.module.css";
+
 export default function page() {
-  return (
-    <div>Portfolio</div>
-  )
+  return <div className={styles.container}>Portfolio</div>;
 }

@@ -1,17 +1,21 @@
 import { links } from "@/config";
 import Link from "next/link";
+import styles from "./navbar.module.css";
 
 export const NavBar = () => {
   return (
-    <header>
-      <Link href="/">Marcus </Link>
-      <div>
+    <header className={styles.container}>
+      <Link href="/" className={styles.logo}>
+        Marcus{" "}
+      </Link>
+      <nav className={styles.links}>
         {links.map(({ id, title, url }) => (
-          <Link href={url} key={id}>
-            <span>{title}</span>
+          <Link href={url} key={id} className={styles.link}>
+            {title}
           </Link>
         ))}
-      </div>
+        <button type="button" className={styles.logout}>Logout</button>
+      </nav>
     </header>
   );
 };
