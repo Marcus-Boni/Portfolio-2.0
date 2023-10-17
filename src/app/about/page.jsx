@@ -1,6 +1,6 @@
-import Image from "next/image";
-import styles from "./about.module.css";
-import { Button } from "@/components/Button";
+import Image from 'next/image';
+import styles from './about.module.css';
+import { Button } from '@/components/Button';
 
 export default function page() {
   return (

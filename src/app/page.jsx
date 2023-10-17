@@ -1,7 +1,7 @@
-import Image from "next/image";
-import styles from "@/styles/page.module.css";
-import Hero from "public/hero.png";
-import { Button } from "@/components/Button";
+import Image from 'next/image';
+import styles from '@/styles/page.module.css';
+import Hero from 'public/hero.webp';
+import { Button } from '@/components/Button';
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
         <Button text="See Our Works" url="/portfolio" />
       </div>
       <div className={styles.item}>
-        <Image src={Hero} alt="contact" className={styles.img} />
+        <Image src={Hero} alt="Hero Image" className={styles.img} />
       </div>
     </section>
   );
