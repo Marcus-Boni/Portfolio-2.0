@@ -2,6 +2,12 @@ import Image from 'next/image';
 import styles from './about.module.css';
 import { Button } from '@/components/Button';
 
+export const metadata = {
+  title: 'Marcus Dev About',
+  description:
+    'Marcus Dev About Page - Handcrafting award winning digital experiences'
+};
+
 export default function page() {
   return (
     <section className={styles.container}>
