@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .logo {
@@ -34,34 +35,12 @@
   cursor: pointer;
 }
 
-.open .line1 {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.open .line2 {
-  opacity: 0;
-}
-
-.open .line3 {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
-
-.line1,
-.line2,
-.line3 {
-  width: 25px;
-  height: 3px;
-  background-color: var(--green);
-  transition: all 0.5s ease;
-  pointer-events: none;
-}
-
 .menuList {
   position: absolute;
   top: 100px;
   right: 0;
   width: 100%;
-  height: 100vh;
+  height: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,24 +48,46 @@
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: all 0.5s ease;
+  background-color: #222;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  z-index: 1;
 }
 
 .menuItem {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 10px;
   font-size: 18px;
   font-weight: bold;
   color: var(--green);
   cursor: pointer;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #bbb;
+  transition: all 0.5s ease;
+}
+
+.menuItem:hover {
+  opacity: .6;
 }
 
 .menuLink {
   text-decoration: none;
   color: var(--green);
+  transition: all 0.5s ease;
 }
+
+.button {
+  padding: 5px;
+  border: none;
+  background-color: var(--green);
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
 
 @media (max-width: 768px) {
   .container {

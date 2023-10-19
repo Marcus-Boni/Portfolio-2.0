@@ -10,7 +10,8 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
   title: 'Marcus Dev',
   description:
-    'A portfolio page is a dedicated section of a website or a standalone webpage that showcases the work, projects, and achievements of an individual, freelancer, or a company.'
+    'A portfolio page is a dedicated section of a website or a standalone webpage that showcases the work, projects, and achievements of an individual, freelancer, or a company.',
+  icons: [{ rel: 'icon', url: '/favicon.ico' }]
 };
 
 export default function RootLayout({ children }) {

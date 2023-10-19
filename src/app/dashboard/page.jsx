@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { Loading } from '@/components/Loading';
+import { notifyError, notifySuccess } from '@/utils/notify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Dashboard() {
   const session = useSession();
@@ -47,8 +49,10 @@ export default function Dashboard() {
       });
       mutate();
       e.target.reset();
+      notifySuccess('Post added successfully!');
     } catch (err) {
       console.log(err);
+      notifyError('Something went wrong!');
     }
   };
 
@@ -58,7 +62,11 @@ export default function Dashboard() {
         method: 'DELETE'
       });
       mutate();
-    } catch (error) {}
+      notifySuccess('Post deleted successfully!');
+    } catch (error) {
+      console.log(error);
+      notifyError('Something went wrong!');
+    }
   };
 
   if (session.status === 'authenticated') {

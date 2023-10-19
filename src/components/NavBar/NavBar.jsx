@@ -8,6 +8,8 @@ import styles from './navbar.module.css';
 import { DarkModeToggle } from '../DarkModeToggle';
 import { useMenu } from './hooks';
 
+import { Icon } from '@iconify/react';
+
 export const NavBar = () => {
   const session = useSession();
   const { handleToggleMenu, isMenuOpen } = useMenu();
@@ -30,9 +32,12 @@ export const NavBar = () => {
           </button>
         )}
         <div className={styles.menu} onClick={handleToggleMenu}>
-          <div className={styles.line1}></div>
-          <div className={styles.line2}></div>
-          <div className={styles.line3}></div>
+          {!isMenuOpen && (
+            <Icon icon="material-symbols:menu" color="#53c28b" width="32" />
+          )}
+          {isMenuOpen && (
+            <Icon icon="material-symbols:close" color="#53c28b" width="32" />
+          )}
         </div>
         <div>
           {isMenuOpen && (
@@ -48,7 +53,7 @@ export const NavBar = () => {
                 <li className={styles.menuItem}>
                   <button
                     type="button"
-                    className={styles.menuLink}
+                    className={styles.button}
                     onClick={signOut}
                   >
                     Logout

@@ -103,3 +103,31 @@
   font-weight: bold;
   margin-left: 10px;
 }
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 40px;
+    margin-bottom: 50px;
+  }
+
+  .imgContainer {
+    height: 300px;
+    flex: auto;
+    width: 100%;
+  }
+
+  .img {
+    height: 100%;
+  }
+
+  .input,
+  .textArea {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+}

@@ -40,3 +40,18 @@
 .imgDescription {
   font-size: 20px;
 }
+
+@media (max-width: 768px) {
+  .textContainer {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .imgContainer {
+    height: 200px;
+  }
+
+  .item {
+    margin-top: 20px;
+  }
+}

@@ -1,3 +1,5 @@
+import { ToastContainer } from 'react-toastify';
+
 export const metadata = {
   title: 'Marcus Dev Dashboard',
   description:
@@ -5,5 +7,10 @@ export const metadata = {
 };
 
 export default function Layout({ children }) {
-  return <>{children}</>;
+  return (
+    <>
+      <ToastContainer />
+      {children}
+    </>
+  );
 }

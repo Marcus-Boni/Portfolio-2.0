@@ -46,3 +46,23 @@
   color: #999;
   text-align: justify;
 }
+
+@media (max-width: 768px) {
+  .top {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .info {
+    gap: 20px;
+  }
+
+  .imageContainer {
+    height: 200px;
+    flex: auto;
+  }
+
+  .image {
+    height: 100%;
+  }
+}

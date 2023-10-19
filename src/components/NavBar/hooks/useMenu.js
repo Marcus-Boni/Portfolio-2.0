@@ -1,13 +1,11 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 export const useMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleToggleMenu = (e) => {
+  const handleToggleMenu = useCallback((e) => {
     setIsMenuOpen((prevState) => !prevState);
-
-    e.target.classList.toggle('open');
-  };
+  }, []);
 
   return {
     handleToggleMenu,

@@ -38,3 +38,31 @@
 .description {
   font-size: 20px;
 }
+
+@media (max-width: 768px) {
+
+  .item {
+    flex-direction: column;
+  }
+
+  .imgContainer {
+    height: 300px;
+    flex: auto;
+  }
+
+  .img {
+    height: 100%;
+  }
+
+  .item:nth-child(2n+1) {
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+}
