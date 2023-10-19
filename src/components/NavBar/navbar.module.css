@@ -24,3 +24,81 @@
   cursor: pointer;
   border-radius: 3px;
 }
+
+.menu {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.open .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.open .line2 {
+  opacity: 0;
+}
+
+.open .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.line1,
+.line2,
+.line3 {
+  width: 25px;
+  height: 3px;
+  background-color: var(--green);
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.menuList {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease;
+}
+
+.menuItem {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--green);
+  cursor: pointer;
+}
+
+.menuLink {
+  text-decoration: none;
+  color: var(--green);
+}
+
+@media (max-width: 768px) {
+  .container {
+    height: 80px;
+  }
+  .logo {
+    font-size: 20px;
+  }
+  .link {
+    display: none;
+  }
+  .menu {
+    display: flex;
+  }
+}

@@ -1,46 +1,83 @@
 'use client';
-
-import { signIn, useSession } from 'next-auth/react';
+import React, { useEffect, useState } from 'react';
 import styles from './page.module.css';
-import { useRegisterForm } from '../hooks';
-import { useRouter } from 'next/navigation';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import { Loading } from '@/components/Loading';
 
-export default function Login() {
-  const { handleSubmitLogin } = useRegisterForm();
-
+export default function Login({ url }) {
   const session = useSession();
   const router = useRouter();
+  const params = useSearchParams();
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
-  if (session.status === 'loading') return <div>Loading...</div>;
+  useEffect(() => {
+    setError(params.get('error'));
+    setSuccess(params.get('success'));
+  }, [params]);
+
+  if (session.status === 'loading') {
+    return <Loading />;
+  }
 
   if (session.status === 'authenticated') {
     router?.push('/dashboard');
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target[0].value;
+    const password = e.target[1].value;
+
+    signIn('credentials', {
+      email,
+      password
+    });
+  };
+
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmitLogin}>
+      <h1 className={styles.title}>{success ? success : 'Welcome Back'}</h1>
+      <h2 className={styles.subtitle}>Please sign in to see the dashboard.</h2>
+
+      <form onSubmit={handleSubmit} className={styles.form}>
         <input
-          type="email"
-          name="email"
-          placeholder="email"
-          className={styles.input}
+          type="text"
+          placeholder="Email"
           required
+          className={styles.input}
         />
         <input
           type="password"
-          name="password"
-          placeholder="password"
-          className={styles.input}
+          placeholder="Password"
           required
+          className={styles.input}
         />
-        <button type="submit" className={styles.button}>
-          Login
-        </button>
+        <button className={styles.button}>Login</button>
+        {error && error}
       </form>
-      <button type="button" onClick={() => signIn('google')}>
+      <button
+        onClick={() => {
+          signIn('google');
+        }}
+        className={styles.button + ' ' + styles.google}
+      >
         Login with Google
       </button>
+      <span className={styles.or}>- OR -</span>
+      <Link className={styles.link} href="/dashboard/register">
+        Create new account
+      </Link>
+      {/* <button
+        onClick={() => {
+          signIn("github");
+        }}
+        className={styles.button + " " + styles.github}
+      >
+        Login with Github
+      </button> */}
     </div>
   );
 }

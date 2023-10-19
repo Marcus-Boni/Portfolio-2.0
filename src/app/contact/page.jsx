@@ -14,7 +14,12 @@ export default function Contact() {
       <h1 className={styles.title}>Let&apos;s Keep in Touch</h1>
       <div className={styles.content}>
         <div className={styles.imgContainer}>
-          <Image src="/contact.webp" alt="" fill className={styles.img} />
+          <Image
+            src="/contact.webp"
+            alt="Contact Image"
+            fill
+            className={styles.img}
+          />
         </div>
         <form className={styles.form}>
           <input

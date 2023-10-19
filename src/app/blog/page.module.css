@@ -17,3 +17,57 @@
   font-size: 18px;
   color: #999;
 }
+
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.loading {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loadingCircle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid #000;
+  border-top: 5px solid #fff;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingShadow {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid #000;
+  border-top: 5px solid #fff;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+}
+
+.loadingText {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+}

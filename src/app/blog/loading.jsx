@@ -1,6 +1,6 @@
 import styles from './page.module.css';
 
-export default function ContactLoading() {
+export default function BlogLoading() {
   return (
     <div className={styles.loadingContainer}>
       <div className={styles.loading}>
