@@ -6,6 +6,14 @@
   gap: 20px;
 }
 
+.title, .subtitle {
+  text-align: center;
+}
+
+.subtitle {
+  margin-bottom: 30px;
+}
+
 .form {
   width: 300px;
   display: flex;
